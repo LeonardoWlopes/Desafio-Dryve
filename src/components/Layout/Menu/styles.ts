@@ -27,9 +27,10 @@ export const ProfileContainer = styled.div`
 `;
 
 export const PhotoFrame = styled.div`
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border: 2.5px solid ${({ theme }) => theme.BLUE};
+    box-sizing: content-box;
     border-radius: 50%;
     overflow: hidden;
     padding: 2px;

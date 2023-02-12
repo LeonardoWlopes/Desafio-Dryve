@@ -7,4 +7,6 @@ export const defaultTheme = {
     MEDIUM_GRAY: "#f3f4f6",
     DARK_GRAY: "#212121",
     CORAL: "#fc4a40",
+    DARK_BLUE_GREY: "#1e2c4c",
+    STEEL: "#768095",
 };

@@ -2,14 +2,20 @@ import React from "react";
 import * as S from "./styles";
 
 //icons
-import up from "../../assets/icons/arrow_up.svg";
-import down from "../../assets/icons/arrow_down.svg";
+import { ReactComponent as Up } from "../../assets/icons/arrow_up.svg";
+import { ReactComponent as Down } from "../../assets/icons/arrow_down.svg";
 import { ReactComponent as car } from "../../assets/icons/car.svg";
 import { ReactComponent as device } from "../../assets/icons/devices.svg";
 import { ReactComponent as money } from "../../assets/icons/money.svg";
 
 //types
 import { ECardsRange } from "./types";
+
+//components
+import { FeedBacks } from "../../components/FeedBacks";
+
+//hooks
+import { useTheme } from "styled-components";
 
 const cards = [
     {
@@ -39,6 +45,8 @@ const cards = [
 ];
 
 function DashBoard() {
+    const theme = useTheme();
+
     return (
         <S.Container>
             {React.Children.toArray(
@@ -48,7 +56,11 @@ function DashBoard() {
                             <S.CardTitle>{title}</S.CardTitle>
                             <S.CardValue>{value}</S.CardValue>
                             <S.GainContainer>
-                                <img src={isGrowing ? up : down} alt="" />
+                                {isGrowing ? (
+                                    <Up color={theme.BLUE} />
+                                ) : (
+                                    <Down color={theme.CORAL} />
+                                )}
                                 <S.Gain isGrowing={isGrowing}>{gain}%</S.Gain>
                                 <S.GainRange>{range}</S.GainRange>
                             </S.GainContainer>
@@ -60,6 +72,10 @@ function DashBoard() {
                     </S.Card>
                 ))
             )}
+
+            <S.FeedBackContainer>
+                <FeedBacks />
+            </S.FeedBackContainer>
         </S.Container>
     );
 }

@@ -86,3 +86,7 @@ export const IconContainer = styled.div`
     color: ${({ theme }) => theme.BLUE};
     border-radius: 50%;
 `;
+
+export const FeedBackContainer = styled.div`
+    grid-column: 1/3;
+`;
