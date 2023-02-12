@@ -12,6 +12,7 @@ export const Container = styled.div`
     border-right: 2px solid ${({ theme }) => theme.LIGHT_GRAY};
     padding: 45px 15px;
     transition: all 0.2s;
+    z-index: 5;
 
     :hover {
         width: 240px;
