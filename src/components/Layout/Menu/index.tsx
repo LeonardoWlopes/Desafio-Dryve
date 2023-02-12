@@ -1,16 +1,23 @@
+import React from "react";
 import * as S from "./styles";
+
+//icons
+import power from "../../../assets/icons/power.svg";
+import { ReactComponent as Client } from "../../../assets/icons/person.svg";
+import { ReactComponent as Home } from "../../../assets/icons/home.svg";
+import { ReactComponent as Vehicles } from "../../../assets/icons/car.svg";
+import { ReactComponent as Tracking } from "../../../assets/icons/triangle.svg";
 
 //hooks
 import { useLocation } from "react-router-dom";
-import React from "react";
 
 //navigation
 const links = [
-    { icon: "", name: "Início", path: "/" },
-    { icon: "", name: "Clientes", path: "/clients" },
-    { icon: "", name: "Veículos", path: "/vehicles" },
-    { icon: "", name: "Triangulação", path: "/Tracking" },
-    { icon: "", name: "Financeiro", path: "/t" },
+    { Icon: Home, name: "Início", path: "/" },
+    { Icon: Client, name: "Clientes", path: "/clients" },
+    { Icon: Vehicles, name: "Veículos", path: "/vehicles" },
+    { Icon: Tracking, name: "Triangulação", path: "/Tracking" },
+    { Icon: Home, name: "Financeiro", path: "/t" },
 ];
 
 function Menu() {
@@ -29,17 +36,27 @@ function Menu() {
                 <S.ProfileContent>
                     <S.ProfileName>Leonardo Lopes</S.ProfileName>
 
-                    <S.LogoutContainer>Sair</S.LogoutContainer>
+                    <S.LogoutContainer>
+                        <img src={power} alt="power" />
+
+                        <span>SAIR</span>
+                    </S.LogoutContainer>
                 </S.ProfileContent>
             </S.ProfileContainer>
 
             <S.NavigationContainer>
                 {React.Children.toArray(
-                    links.map(({ path, name }) => (
-                        <S.NavLink isCurrentPath={pathname === path} to={path}>
-                            <span>{name}</span>
-                        </S.NavLink>
-                    ))
+                    links.map(({ path, name, Icon }) => {
+                        return (
+                            <S.NavLink to={path}>
+                                <S.NavItem isCurrentPath={pathname === path}>
+                                    <Icon />
+
+                                    <span>{name}</span>
+                                </S.NavItem>
+                            </S.NavLink>
+                        );
+                    })
                 )}
             </S.NavigationContainer>
         </S.Container>
