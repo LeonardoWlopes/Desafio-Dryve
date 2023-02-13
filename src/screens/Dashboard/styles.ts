@@ -90,3 +90,8 @@ export const IconContainer = styled.div`
 export const FeedBackContainer = styled.div`
     grid-column: 1/3;
 `;
+
+
+export const TopListContainer = styled.div`
+    grid-column: 3/4;
+`;

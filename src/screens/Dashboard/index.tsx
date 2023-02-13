@@ -16,6 +16,7 @@ import { FeedBacks } from "../../components/FeedBacks";
 
 //hooks
 import { useTheme } from "styled-components";
+import { TopList } from "../../components/TopList";
 
 const cards = [
     {
@@ -76,6 +77,10 @@ function DashBoard() {
             <S.FeedBackContainer>
                 <FeedBacks />
             </S.FeedBackContainer>
+
+            <S.TopListContainer>
+                <TopList />
+            </S.TopListContainer>
         </S.Container>
     );
 }
