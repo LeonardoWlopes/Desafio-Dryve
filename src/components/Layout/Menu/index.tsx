@@ -7,6 +7,7 @@ import { ReactComponent as Client } from "../../../assets/icons/person.svg";
 import { ReactComponent as Home } from "../../../assets/icons/home.svg";
 import { ReactComponent as Vehicles } from "../../../assets/icons/car.svg";
 import { ReactComponent as Tracking } from "../../../assets/icons/triangle.svg";
+import { ReactComponent as Wallet } from "../../../assets/icons/wallet.svg";
 
 //hooks
 import { useLocation } from "react-router-dom";
@@ -17,7 +18,7 @@ const links = [
     { Icon: Client, name: "Clientes", path: "/clients" },
     { Icon: Vehicles, name: "Veículos", path: "/vehicles" },
     { Icon: Tracking, name: "Triangulação", path: "/Tracking" },
-    { Icon: Home, name: "Financeiro", path: "/t" },
+    { Icon: Wallet, name: "Financeiro", path: "/disabled", disabled: true },
 ];
 
 function Menu() {
@@ -46,10 +47,16 @@ function Menu() {
 
             <S.NavigationContainer>
                 {React.Children.toArray(
-                    links.map(({ path, name, Icon }) => {
+                    links.map(({ path, name, Icon, disabled }) => {
                         return (
-                            <S.NavLink to={path}>
-                                <S.NavItem isCurrentPath={pathname === path}>
+                            <S.NavLink
+                                to={path}
+                                onClick={(e) => disabled && e.preventDefault()}
+                            >
+                                <S.NavItem
+                                    disabled={disabled}
+                                    isCurrentPath={pathname === path}
+                                >
                                     <Icon />
 
                                     <span>{name}</span>

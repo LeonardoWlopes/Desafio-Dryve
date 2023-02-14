@@ -130,6 +130,7 @@ function Clients() {
                                         clients.length
                                     }
                                     onClick={handleCheckAllItems}
+                                    readOnly
                                 />
                             </div>
                         </S.Column>
@@ -156,6 +157,7 @@ function Clients() {
                                                 i
                                             )}
                                             onClick={() => handleCheckItem(i)}
+                                            readOnly
                                         />
                                     </div>
                                 </S.Item>

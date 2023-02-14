@@ -83,7 +83,7 @@ export const NavigationContainer = styled.div`
     flex-direction: column;
 `;
 
-export const NavItem = styled.div<{ isCurrentPath: boolean }>`
+export const NavItem = styled.div<{isCurrentPath: boolean, disabled: boolean}>`
     height: 100%;
     border-radius: 4px;
     display: flex;
@@ -113,6 +113,13 @@ export const NavItem = styled.div<{ isCurrentPath: boolean }>`
             svg {
                 color: ${({ theme }) => theme.BLUE};
             }
+        `};
+
+    ${({ disabled }) =>
+        disabled &&
+        css`
+            opacity: 0.6;
+            cursor: not-allowed;
         `};
 `;
 
