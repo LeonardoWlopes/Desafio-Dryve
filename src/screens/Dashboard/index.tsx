@@ -17,6 +17,7 @@ import { FeedBacks } from "../../components/FeedBacks";
 //hooks
 import { useTheme } from "styled-components";
 import { TopList } from "../../components/TopList";
+import { Graph } from "../../components/Graph";
 
 const cards = [
     {
@@ -81,6 +82,10 @@ function DashBoard() {
             <S.TopListContainer>
                 <TopList />
             </S.TopListContainer>
+
+            <S.GraphContainer>
+                <Graph />
+            </S.GraphContainer>
         </S.Container>
     );
 }

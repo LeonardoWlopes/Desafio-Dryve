@@ -4,7 +4,7 @@ export const Container = styled.div`
     border-radius: 4px;
     border: solid 1px rgba(0, 0, 0, 0.12);
     background-color: ${({ theme }) => theme.WHITE};
-    height: 640px;
+    height: 660px;
     overflow-y: auto;
     scrollbar-width: auto;
     scrollbar-color: #e5e5e5 #ffffff;

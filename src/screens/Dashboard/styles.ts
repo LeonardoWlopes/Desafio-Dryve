@@ -89,9 +89,14 @@ export const IconContainer = styled.div`
 
 export const FeedBackContainer = styled.div`
     grid-column: 1/3;
+    grid-row: 2/4;
 `;
-
 
 export const TopListContainer = styled.div`
     grid-column: 3/4;
+`;
+
+export const GraphContainer = styled.div`
+    grid-column: 3/4;
+    
 `;
