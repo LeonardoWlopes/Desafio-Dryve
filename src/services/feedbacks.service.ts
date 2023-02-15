@@ -31,9 +31,12 @@ export function useFeedBacks() {
                     JSON.stringify(data)
                 );
                 setFeedBacks(data);
+                console.log("Feedbacks Loaded...");
+            })
+            .catch((err) => {
+                console.error("Error on Fetch Feedbacks", err);
             })
             .finally(() => {
-                console.log("Feedbacks Loaded...");
                 setIsLoading(false);
             });
 
