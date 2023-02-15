@@ -13,6 +13,7 @@ import { Search } from "../../components/Search";
 
 //types
 import { EClientType } from "./types";
+import { Link } from "react-router-dom";
 
 const clients = [
     {
@@ -112,9 +113,11 @@ function Clients() {
                     <Search />
                 </S.SearchContent>
 
-                <S.AddButton>
-                    <span>+</span> adicionar
-                </S.AddButton>
+                <Link to={"/create-client"}>
+                    <S.AddButton>
+                        <span>+</span> adicionar
+                    </S.AddButton>
+                </Link>
             </S.SearchContainer>
 
             <S.Table>

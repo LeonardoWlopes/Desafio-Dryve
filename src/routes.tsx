@@ -5,6 +5,7 @@ import { Layout } from "./components/Layout";
 
 //screens
 import { Clients } from "./screens/Clients";
+import { CreateClient } from "./screens/CreateClient";
 import { DashBoard } from "./screens/Dashboard";
 import { Tracking } from "./screens/Tracking";
 import { Vehicles } from "./screens/Vehicles";
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: "clients",
                 element: <Clients />,
+            },
+            {
+                path: "create-client",
+                element: <CreateClient />,
             },
             {
                 path: "vehicles",
