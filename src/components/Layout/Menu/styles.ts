@@ -83,7 +83,10 @@ export const NavigationContainer = styled.div`
     flex-direction: column;
 `;
 
-export const NavItem = styled.div<{isCurrentPath: boolean, disabled: boolean}>`
+export const NavItem = styled.div<{
+    isCurrentPath: boolean;
+    disabled?: boolean;
+}>`
     height: 100%;
     border-radius: 4px;
     display: flex;

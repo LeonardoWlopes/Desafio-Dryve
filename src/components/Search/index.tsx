@@ -4,14 +4,18 @@ import * as S from "./styles";
 //icons
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 
+//hookss
 import { useTheme } from "styled-components";
 
-function Search() {
+//types
+import { ISearch } from "./types";
+
+function Search(props: ISearch) {
     const theme = useTheme();
 
     return (
         <S.Container>
-            <input type="text" placeholder="Buscar por nome..." />
+            <input type="text" {...props} />
 
             <SearchIcon color={theme.DARK_GRAY} />
         </S.Container>

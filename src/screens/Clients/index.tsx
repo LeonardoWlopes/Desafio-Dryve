@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import * as S from "./styles";
 
 //icons
@@ -80,6 +80,12 @@ const clients = [
 
 function Clients() {
     const [checkedIndexList, setCheckedIndexList] = useState<number[]>([]);
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const renderList = useMemo(() => {
+        setCheckedIndexList([]);
+        return clients.filter((client) => client.name.includes(searchQuery));
+    }, [searchQuery]);
 
     function handleCheckItem(index: number) {
         if (checkedIndexList.includes(index)) {
@@ -91,13 +97,13 @@ function Clients() {
     }
 
     function handleCheckAllItems() {
-        if (checkedIndexList.length === clients.length) {
+        if (checkedIndexList.length === renderList.length) {
             setCheckedIndexList([]);
             return;
         }
 
         setCheckedIndexList(
-            Array.from({ length: clients.length }, (_, i) => i)
+            Array.from({ length: renderList.length }, (_, i) => i)
         );
     }
 
@@ -110,7 +116,11 @@ function Clients() {
                         <span>filtrar</span>
                     </S.Filter>
 
-                    <Search />
+                    <Search
+                        placeholder="Buscar por nome..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
                 </S.SearchContent>
 
                 <Link to={"/create-client"}>
@@ -130,7 +140,7 @@ function Clients() {
                                     type="checkbox"
                                     checked={
                                         checkedIndexList.length ===
-                                        clients.length
+                                        renderList.length
                                     }
                                     onClick={handleCheckAllItems}
                                     readOnly
@@ -148,7 +158,7 @@ function Clients() {
                 </thead>
                 <tbody>
                     {React.Children.toArray(
-                        clients?.map(({ email, name, phone, type }, i) => (
+                        renderList?.map(({ email, name, phone, type }, i) => (
                             <S.Row>
                                 <S.Padding />
 
@@ -192,7 +202,7 @@ function Clients() {
             <S.Footer>
                 <div>
                     <S.FooterText1>Intens por página: </S.FooterText1>
-                    <strong>{clients.length}</strong>
+                    <strong>{renderList.length}</strong>
                     <Down />
                     <S.FooterText1>1-10 de 3.456</S.FooterText1>
                 </div>
